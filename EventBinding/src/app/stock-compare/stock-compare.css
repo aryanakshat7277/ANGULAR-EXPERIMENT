@@ -1,0 +1,47 @@
+.demo-box {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.approach-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  background: #fafafa;
+  border-radius: 4px;
+}
+
+.approach-card h4 {
+  margin-top: 0;
+  font-size: 0.95rem;
+}
+
+input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.summary-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.summary-table th, .summary-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 0.85rem;
+}
+
+.summary-table th {
+  background: #f2f2f2;
+}

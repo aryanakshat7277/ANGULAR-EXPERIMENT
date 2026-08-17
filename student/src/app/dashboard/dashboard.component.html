@@ -1,0 +1,12 @@
+<div class="demo-box">
+  <h3>Experiment 4.8: Complex Project (Dashboard Parent & Multiple Children)</h3>
+  <p>Dashboard (parent) exchanges data with Student, Course, and Result child components using @Input and @Output.</p>
+
+  <app-dashboard-student-child name="Aarav Kumar" (select)="onStudentSelected($event)"></app-dashboard-student-child>
+  <app-dashboard-student-child name="Priya Sharma" (select)="onStudentSelected($event)"></app-dashboard-student-child>
+
+  <app-dashboard-course-child title="Angular 22 Framework" (select)="onCourseSelected($event)"></app-dashboard-course-child>
+  <app-dashboard-course-child title="Enterprise Micro-Frontends" (select)="onCourseSelected($event)"></app-dashboard-course-child>
+
+  <app-dashboard-result-child [studentName]="selectedStudent" [courseTitle]="selectedCourse"></app-dashboard-result-child>
+</div>

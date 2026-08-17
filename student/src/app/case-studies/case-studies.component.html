@@ -1,0 +1,19 @@
+<div class="demo-box">
+  <h3>Experiment 4.9: Enterprise Case Studies</h3>
+  <table class="simple-table">
+    <thead>
+      <tr>
+        <th>Domain</th>
+        <th>Interaction Flow</th>
+        <th>Communication Mechanism</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cs of caseStudies">
+        <td><strong>{{ cs.title }}</strong></td>
+        <td><code>{{ cs.flow }}</code></td>
+        <td>{{ cs.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

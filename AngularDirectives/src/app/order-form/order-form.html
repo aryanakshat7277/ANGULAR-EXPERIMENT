@@ -1,0 +1,55 @@
+<div class="demo-box">
+  <h3>Experiment 3.6: Live Order Form</h3>
+  <div class="demo-content">
+    <div class="form-group">
+      <label>Item Name: </label>
+      <input [(ngModel)]="itemName" placeholder="Item name">
+    </div>
+    <div class="form-group">
+      <label>Quantity: </label>
+      <input type="number" [(ngModel)]="quantity" min="1">
+    </div>
+    <p>Price per item: ₹{{ pricePerItem }}</p>
+    <p><strong>Total: ₹{{ total }}</strong></p>
+    <button [disabled]="isFormInvalid" (click)="placeOrder()">Place Order</button>
+
+    <p *ngIf="submitted" class="success-msg">
+      Order placed for {{ quantity }} x {{ itemName }} (₹{{ total }})
+    </p>
+
+    <div class="summary-table">
+      <h4>Documentation Summary</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Binding Type</th>
+            <th>Used For</th>
+            <th>Code in this Demo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Interpolation</td>
+            <td>Displaying computed values</td>
+            <td><code>&#123;&#123; total &#125;&#125;, &#123;&#123; pricePerItem &#125;&#125;</code></td>
+          </tr>
+          <tr>
+            <td>Property Binding</td>
+            <td>Controlling button state</td>
+            <td><code>[disabled]="isFormInvalid"</code></td>
+          </tr>
+          <tr>
+            <td>Event Binding</td>
+            <td>Reacting to the click</td>
+            <td><code>(click)="placeOrder()"</code></td>
+          </tr>
+          <tr>
+            <td>Two-Way Binding</td>
+            <td>Capturing form input</td>
+            <td><code>[(ngModel)]="itemName", [(ngModel)]="quantity"</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

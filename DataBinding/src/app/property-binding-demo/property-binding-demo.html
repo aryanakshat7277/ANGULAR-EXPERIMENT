@@ -1,0 +1,11 @@
+<div class="demo-box">
+  <h3>Experiment 3.1: Property Binding</h3>
+  <div class="demo-content">
+    <img [src]="imageUrl" width="80" alt="Angular logo">
+    <br><br>
+    <button [disabled]="isButtonDisabled">Submit</button>
+    <input [value]="inputValue">
+    <br><br>
+    <button (click)="isButtonDisabled = !isButtonDisabled">Toggle Disabled</button>
+  </div>
+</div>

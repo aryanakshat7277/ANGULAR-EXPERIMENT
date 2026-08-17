@@ -1,0 +1,27 @@
+.demo-box {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.demo-box h3 {
+  margin-top: 0;
+}
+
+button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+li {
+  padding: 4px 0;
+}
+
+.pass { color: green; }
+.fail { color: red; }

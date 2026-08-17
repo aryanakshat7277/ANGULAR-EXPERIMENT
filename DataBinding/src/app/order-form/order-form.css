@@ -1,0 +1,53 @@
+.demo-box {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.demo-box h3 {
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.success-msg {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.summary-table {
+  margin-top: 16px;
+  border-top: 1px solid #ddd;
+  padding-top: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 0.85rem;
+}
+
+th {
+  background-color: #f2f2f2;
+}

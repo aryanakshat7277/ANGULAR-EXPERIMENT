@@ -1,0 +1,11 @@
+<div class="demo-box">
+  <p>Counter: {{ counter }}</p>
+  <button (click)="counter = counter + 1">Increment</button>
+
+  <div class="log-box" style="margin-top: 10px;">
+    <strong>Console Execution Log:</strong>
+    <ul>
+      <li *ngFor="let l of logs">{{ l }}</li>
+    </ul>
+  </div>
+</div>

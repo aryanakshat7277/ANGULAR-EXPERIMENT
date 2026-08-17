@@ -1,0 +1,115 @@
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background: #fdfdfd;
+  padding: 16px;
+}
+
+.lab-shell {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.lab-header {
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.lab-header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #222;
+}
+
+.header-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+.experiment-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.experiment-nav button {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.experiment-nav button:hover {
+  background: #e5e5e5;
+}
+
+.experiment-nav button.active {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+  font-weight: bold;
+}
+
+.lab-canvas {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.overview-hero h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.exp-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.exp-card:hover {
+  background: #f0f4f8;
+  border-color: #0066cc;
+}
+
+.exp-num {
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #0066cc;
+  margin-bottom: 4px;
+}
+
+.exp-title {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.exp-sub {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.demo-box {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 4px;
+  background: #fff;
+}

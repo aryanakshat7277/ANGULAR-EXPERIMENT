@@ -1,0 +1,19 @@
+<div class="demo-box">
+  <h3>Experiment 2.5: Component Lifecycle Reference Documentation</h3>
+  <table class="simple-table">
+    <thead>
+      <tr>
+        <th>Lifecycle Hook</th>
+        <th>Trigger Condition</th>
+        <th>Typical Real-World Use Case</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of lifecycleHooks">
+        <td><code>{{ item.hook }}</code></td>
+        <td>{{ item.condition }}</td>
+        <td>{{ item.useCase }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

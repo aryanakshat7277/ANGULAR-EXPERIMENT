@@ -1,0 +1,38 @@
+.parent-box {
+  border: 1px solid #bbb;
+  padding: 16px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.parent-box h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.badge {
+  background: #eef;
+  border: 1px solid #ccf;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.action-bar {
+  margin-bottom: 12px;
+}
+
+.action-bar button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.action-bar button:hover {
+  background: #555;
+}

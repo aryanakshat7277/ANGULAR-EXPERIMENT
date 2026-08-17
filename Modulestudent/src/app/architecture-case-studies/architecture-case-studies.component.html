@@ -1,0 +1,19 @@
+<div class="demo-box">
+  <h3>Experiment 2.9: Case Studies of Angular Application Architectures</h3>
+  <table class="simple-table">
+    <thead>
+      <tr>
+        <th>Architectural Domain</th>
+        <th>Production Strategy</th>
+        <th>Primary Benefit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cs of caseStudies">
+        <td><strong>{{ cs.domain }}</strong></td>
+        <td>{{ cs.strategy }}</td>
+        <td>{{ cs.benefit }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

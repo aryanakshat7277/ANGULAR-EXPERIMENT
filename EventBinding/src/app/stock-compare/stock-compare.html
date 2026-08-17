@@ -1,0 +1,69 @@
+<div class="demo-box">
+  <h3>Experiment 3.7: Compare Data Binding Techniques</h3>
+
+  <div class="compare-grid">
+    <!-- Approach A -->
+    <div class="approach-card">
+      <h4>Approach A — Manual One-Way + Event</h4>
+      <input [value]="manualStock" (input)="updateStock($any($event.target).value)">
+      <p>Stock: {{ manualStock }}</p>
+      <small>Lines of binding code: 2 ([value] + (input))</small>
+    </div>
+
+    <!-- Approach B -->
+    <div class="approach-card">
+      <h4>Approach B — Two-Way [(ngModel)]</h4>
+      <input [(ngModel)]="ngModelStock">
+      <p>Stock: {{ ngModelStock }}</p>
+      <small>Lines of binding code: 1 ([(ngModel)])</small>
+    </div>
+
+    <!-- Approach C -->
+    <div class="approach-card">
+      <h4>Approach C — Reactive FormControl</h4>
+      <input [formControl]="stockControl">
+      <p>Stock: {{ stockControl.value }}</p>
+      <small>Lines of binding code: 1 (adds validation / observables)</small>
+    </div>
+  </div>
+
+  <div class="summary-table">
+    <h4>Comparison Summary</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Criterion</th>
+          <th>Manual binding</th>
+          <th>ngModel</th>
+          <th>Reactive FormControl</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Code required</td>
+          <td>Most (2 bindings)</td>
+          <td>Least (1 directive)</td>
+          <td>Least (1 directive)</td>
+        </tr>
+        <tr>
+          <td>Validation support</td>
+          <td>Manual only</td>
+          <td>Template-driven validators</td>
+          <td>Built-in, type-safe validators</td>
+        </tr>
+        <tr>
+          <td>Testability</td>
+          <td>Simple, no extra setup</td>
+          <td>Requires DOM/TestBed</td>
+          <td>Easily unit-testable without DOM</td>
+        </tr>
+        <tr>
+          <td>Best use case</td>
+          <td>Fine-grained custom logic</td>
+          <td>Small/simple forms</td>
+          <td>Complex forms, dynamic validation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
