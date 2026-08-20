@@ -5,89 +5,13 @@
   </header>
 
   <nav class="experiment-nav">
-    <button [class.active]="activeTab === 'overview'" (click)="selectTab('overview')">Overview</button>
     <button [class.active]="activeTab === '3.1'" (click)="selectTab('3.1')">3.1 Property Binding</button>
     <button [class.active]="activeTab === '3.2'" (click)="selectTab('3.2')">3.2 Event Binding</button>
     <button [class.active]="activeTab === '3.3'" (click)="selectTab('3.3')">3.3 Two-Way Binding</button>
     <button [class.active]="activeTab === '3.4'" (click)="selectTab('3.4')">3.4 Built-in Directives</button>
-    <button [class.active]="activeTab === '3.5'" (click)="selectTab('3.5')">3.5 Custom Highlight</button>
-    <button [class.active]="activeTab === '3.6'" (click)="selectTab('3.6')">3.6 Live Order Form</button>
-    <button [class.active]="activeTab === '3.7'" (click)="selectTab('3.7')">3.7 Compare Techniques</button>
-    <button [class.active]="activeTab === '3.8'" (click)="selectTab('3.8')">3.8 Seminar (*appUnless)</button>
-    <button [class.active]="activeTab === '3.9'" (click)="selectTab('3.9')">3.9 Task Manager</button>
-    <button [class.active]="activeTab === '3.10'" (click)="selectTab('3.10')">3.10 Case Studies</button>
   </nav>
 
   <main class="lab-canvas">
-
-    <!-- Overview -->
-    <div *ngIf="activeTab === 'overview'" class="overview-hero">
-      <h2>Unit 3: Angular Data Binding & Directives (Experiments 3.1 - 3.10)</h2>
-      <p>Select any experiment from the navigation bar above or click a card below to run the demo.</p>
-
-      <div class="exp-grid">
-        <div class="exp-card" (click)="selectTab('3.1')">
-          <div class="exp-num">Exp 3.1</div>
-          <div class="exp-title">Property Binding</div>
-          <div class="exp-sub">Square-bracket [property]="expression" syntax.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('3.2')">
-          <div class="exp-num">Exp 3.2</div>
-          <div class="exp-title">Event Binding</div>
-          <div class="exp-sub">Parenthesis (event)="handler($event)" syntax.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('3.3')">
-          <div class="exp-num">Exp 3.3</div>
-          <div class="exp-title">Two-Way Binding</div>
-          <div class="exp-sub">[(ngModel)] banana-in-a-box syntax.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('3.4')">
-          <div class="exp-num">Exp 3.4</div>
-          <div class="exp-title">Built-in Directives</div>
-          <div class="exp-sub">*ngIf, *ngFor, [ngClass], [ngStyle].</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('3.5')">
-          <div class="exp-num">Exp 3.5</div>
-          <div class="exp-title">Custom Highlight Directive</div>
-          <div class="exp-sub">Mouse hover background color directive.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('3.6')">
-          <div class="exp-num">Exp 3.6</div>
-          <div class="exp-title">Live Order Form</div>
-          <div class="exp-sub">Combining all 4 binding types in one form.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('3.7')">
-          <div class="exp-num">Exp 3.7</div>
-          <div class="exp-title">Compare Binding Techniques</div>
-          <div class="exp-sub">Manual vs ngModel vs Reactive forms.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('3.8')">
-          <div class="exp-num">Exp 3.8</div>
-          <div class="exp-title">Seminar on Directives</div>
-          <div class="exp-sub">Custom structural directive *appUnless.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('3.9')">
-          <div class="exp-num">Exp 3.9</div>
-          <div class="exp-title">Task Manager Project</div>
-          <div class="exp-sub">Built-in & custom directives combined.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('3.10')">
-          <div class="exp-num">Exp 3.10</div>
-          <div class="exp-title">Case Studies</div>
-          <div class="exp-sub">trackBy rendering & *appHasRole.</div>
-        </div>
-      </div>
-    </div>
-
     <!-- Exp 3.1 -->
     <div *ngIf="activeTab === '3.1'">
       <app-property-binding-demo></app-property-binding-demo>
@@ -107,44 +31,5 @@
     <div *ngIf="activeTab === '3.4'">
       <app-directives-demo></app-directives-demo>
     </div>
-
-    <!-- Exp 3.5 -->
-    <div *ngIf="activeTab === '3.5'">
-      <div class="demo-box">
-        <h3>Experiment 3.5: Custom Attribute Directive (appHighlight)</h3>
-        <p appHighlight="lightblue">Hover over me to see light blue!</p>
-        <p appHighlight="lightgreen">Hover over me to see light green!</p>
-      </div>
-    </div>
-
-    <!-- Exp 3.6 -->
-    <div *ngIf="activeTab === '3.6'">
-      <app-order-form></app-order-form>
-    </div>
-
-    <!-- Exp 3.7 -->
-    <div *ngIf="activeTab === '3.7'">
-      <app-stock-compare></app-stock-compare>
-    </div>
-
-    <!-- Exp 3.8 -->
-    <div *ngIf="activeTab === '3.8'">
-      <div class="demo-box">
-        <h3>Experiment 3.8: Custom Structural Directive (*appUnless)</h3>
-        <p *appUnless="isLoggedIn">Please log in to continue.</p>
-        <button (click)="isLoggedIn = !isLoggedIn">Toggle Login</button>
-      </div>
-    </div>
-
-    <!-- Exp 3.9 -->
-    <div *ngIf="activeTab === '3.9'">
-      <app-task-list></app-task-list>
-    </div>
-
-    <!-- Exp 3.10 -->
-    <div *ngIf="activeTab === '3.10'">
-      <app-case-studies></app-case-studies>
-    </div>
-
   </main>
 </div>
