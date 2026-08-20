@@ -5,124 +5,13 @@
   </header>
 
   <nav class="experiment-nav">
-    <button [class.active]="activeTab === 'overview'" (click)="selectTab('overview')">Overview</button>
     <button [class.active]="activeTab === '4.1'" (click)="selectTab('4.1')">4.1 @Input & @Output</button>
     <button [class.active]="activeTab === '4.2'" (click)="selectTab('4.2')">4.2 EventEmitter</button>
     <button [class.active]="activeTab === '4.3'" (click)="selectTab('4.3')">4.3 Parent-Child Sync</button>
     <button [class.active]="activeTab === '4.4'" (click)="selectTab('4.4')">4.4 ViewChild / ContentChild</button>
-    <button [class.active]="activeTab === '4.5'" (click)="selectTab('4.5')">4.5 Observation Table</button>
-    <button [class.active]="activeTab === '4.6'" (click)="selectTab('4.6')">4.6 Comparison Matrix</button>
-    <button [class.active]="activeTab === '4.7'" (click)="selectTab('4.7')">4.7 Seminar Deck</button>
-    <button [class.active]="activeTab === '4.8'" (click)="selectTab('4.8')">4.8 Complex Project</button>
-    <button [class.active]="activeTab === '4.9'" (click)="selectTab('4.9')">4.9 Case Studies</button>
-    <button [class.active]="activeTab === '4.10'" (click)="selectTab('4.10')">4.10 Advanced Patterns</button>
   </nav>
 
   <main class="lab-canvas">
-
-    <!-- Overview -->
-    <div *ngIf="activeTab === 'overview'" class="overview-hero">
-      <h2>Chapter 12: Component Communication (Experiments 4.1 - 4.10)</h2>
-      <p>Select any experiment from the navigation bar above or click a card below to run the demo.</p>
-
-      <div class="exp-grid">
-        <div class="exp-card" (click)="selectTab('4.1')">
-          <div class="exp-num">Exp 4.1</div>
-          <div class="exp-title">@Input & @Output</div>
-          <div class="exp-sub">Parent sends data to child, child returns data.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('4.2')">
-          <div class="exp-num">Exp 4.2</div>
-          <div class="exp-title">EventEmitter</div>
-          <div class="exp-sub">Child emits numeric score data to parent.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('4.3')">
-          <div class="exp-num">Exp 4.3</div>
-          <div class="exp-title">Parent-Child Sync</div>
-          <div class="exp-sub">Two-way synchronization using Input and Output.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('4.4')">
-          <div class="exp-num">Exp 4.4</div>
-          <div class="exp-title">ViewChild & ContentChild</div>
-          <div class="exp-sub">Invoke child methods and access projected content.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('4.5')">
-          <div class="exp-num">Exp 4.5</div>
-          <div class="exp-title">Observation Table</div>
-          <div class="exp-sub">Technique, direction, and purpose documentation.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('4.6')">
-          <div class="exp-num">Exp 4.6</div>
-          <div class="exp-title">Comparison Matrix</div>
-          <div class="exp-sub">Compare all communication mechanisms.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('4.7')">
-          <div class="exp-num">Exp 4.7</div>
-          <div class="exp-title">Seminar Topics</div>
-          <div class="exp-sub">Present slides with live feature demo.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('4.8')">
-          <div class="exp-num">Exp 4.8</div>
-          <div class="exp-title">Complex Dashboard</div>
-          <div class="exp-sub">Mini project with multiple interacting components.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('4.9')">
-          <div class="exp-num">Exp 4.9</div>
-          <div class="exp-title">Case Studies</div>
-          <div class="exp-sub">E-Commerce, Student Portal & Hospital systems.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('4.10')">
-          <div class="exp-num">Exp 4.10</div>
-          <div class="exp-title">Advanced Patterns</div>
-          <div class="exp-sub">RxJS BehaviorSubject & Angular 22 Signals.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Exp 4.1, 4.2, 4.3, 4.4 -->
-    <div *ngIf="activeTab === '4.1' || activeTab === '4.2' || activeTab === '4.3' || activeTab === '4.4'">
-      <app-parent></app-parent>
-    </div>
-
-    <!-- Exp 4.5, 4.6, 4.7 -->
-    <div *ngIf="activeTab === '4.5' || activeTab === '4.6' || activeTab === '4.7'">
-      <app-seminar></app-seminar>
-    </div>
-
-    <!-- Exp 4.8 -->
-    <div *ngIf="activeTab === '4.8'">
-      <app-dashboard></app-dashboard>
-    </div>
-
-    <!-- Exp 4.9 -->
-    <div *ngIf="activeTab === '4.9'">
-      <app-case-studies></app-case-studies>
-    </div>
-
-    <!-- Exp 4.10 -->
-    <div *ngIf="activeTab === '4.10'">
-      <div class="demo-box">
-        <h3>Experiment 4.10: Advanced Patterns (RxJS & Signals)</h3>
-        <p><strong>RxJS BehaviorSubject Current Message:</strong> <code>{{ (dataService.current$ | async) }}</code></p>
-        <p><strong>Angular 22 Reactive Signal Value:</strong> <code>{{ dataService.reactiveSignal() }}</code></p>
-
-        <div style="margin-top: 10px;">
-          <input #newMsg placeholder="Enter new state text" style="padding: 6px; width: 220px; margin-right: 6px;">
-          <button (click)="updateServiceMessage(newMsg.value); newMsg.value=''" style="padding: 6px 12px; cursor: pointer;">
-            Broadcast Update
-          </button>
-        </div>
-      </div>
-    </div>
-
+    <app-parent></app-parent>
   </main>
 </div>
