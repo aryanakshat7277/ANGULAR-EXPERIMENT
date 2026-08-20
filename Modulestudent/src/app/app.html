@@ -5,89 +5,12 @@
   </header>
 
   <nav class="experiment-nav">
-    <button [class.active]="activeTab === 'overview'" (click)="selectTab('overview')">Overview</button>
     <button [class.active]="activeTab === '2.1'" (click)="selectTab('2.1')">2.1 Component Creation</button>
     <button [class.active]="activeTab === '2.2'" (click)="selectTab('2.2')">2.2 Lifecycle Hooks</button>
     <button [class.active]="activeTab === '2.3'" (click)="selectTab('2.3')">2.3 Modules</button>
-    <button [class.active]="activeTab === '2.4'" (click)="selectTab('2.4')">2.4 Best Practices</button>
-    <button [class.active]="activeTab === '2.5'" (click)="selectTab('2.5')">2.5 Lifecycle Doc</button>
-    <button [class.active]="activeTab === '2.6'" (click)="selectTab('2.6')">2.6 Compare Layouts</button>
-    <button [class.active]="activeTab === '2.7'" (click)="selectTab('2.7')">2.7 Architecture Seminar</button>
-    <button [class.active]="activeTab === '2.8'" (click)="selectTab('2.8')">2.8 Modular App</button>
-    <button [class.active]="activeTab === '2.9'" (click)="selectTab('2.9')">2.9 Case Studies</button>
-    <button [class.active]="activeTab === '2.10'" (click)="selectTab('2.10')">2.10 Smart/Dumb Pattern</button>
   </nav>
 
   <main class="lab-canvas">
-
-    <!-- Overview -->
-    <div *ngIf="activeTab === 'overview'" class="overview-hero">
-      <h2>Unit 2: Angular Components, Lifecycle & Architecture (Experiments 2.1 - 2.10)</h2>
-      <p>Select any experiment from the navigation bar above or click a card below to run the demo.</p>
-
-      <div class="exp-grid">
-        <div class="exp-card" (click)="selectTab('2.1')">
-          <div class="exp-num">Exp 2.1</div>
-          <div class="exp-title">Create & Use Components</div>
-          <div class="exp-sub">StudentCardComponent with @Input() binding.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('2.2')">
-          <div class="exp-num">Exp 2.2</div>
-          <div class="exp-title">Lifecycle Hooks</div>
-          <div class="exp-sub">Execution sequence: ngOnInit, ngOnChanges, ngOnDestroy.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('2.3')">
-          <div class="exp-num">Exp 2.3</div>
-          <div class="exp-title">Manage Modules</div>
-          <div class="exp-sub">NgModule declarations, exports, and feature routes.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('2.4')">
-          <div class="exp-num">Exp 2.4</div>
-          <div class="exp-title">Best Practice Structure</div>
-          <div class="exp-sub">core/, shared/, features/ folder organization.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('2.5')">
-          <div class="exp-num">Exp 2.5</div>
-          <div class="exp-title">Lifecycle Documentation</div>
-          <div class="exp-sub">Lifecycle hooks reference table & triggers.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('2.6')">
-          <div class="exp-num">Exp 2.6</div>
-          <div class="exp-title">Compare Structuring</div>
-          <div class="exp-sub">Flat vs Feature-based vs Monorepo (Nx).</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('2.7')">
-          <div class="exp-num">Exp 2.7</div>
-          <div class="exp-title">Architecture Seminar</div>
-          <div class="exp-sub">4 architectural pillars summary.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('2.8')">
-          <div class="exp-num">Exp 2.8</div>
-          <div class="exp-title">Modular Application</div>
-          <div class="exp-sub">CoreModule, SharedModule & lazy feature chunks.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('2.9')">
-          <div class="exp-num">Exp 2.9</div>
-          <div class="exp-title">Architecture Case Studies</div>
-          <div class="exp-sub">Module boundaries, state management & scalability.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('2.10')">
-          <div class="exp-num">Exp 2.10</div>
-          <div class="exp-title">Smart/Dumb Component Pattern</div>
-          <div class="exp-sub">Container / Presentational split with BehaviorSubject store.</div>
-        </div>
-      </div>
-    </div>
-
     <!-- Exp 2.1 -->
     <div *ngIf="activeTab === '2.1'">
       <div class="demo-box">
@@ -114,55 +37,5 @@
         <app-course-list></app-course-list>
       </div>
     </div>
-
-    <!-- Exp 2.4 -->
-    <div *ngIf="activeTab === '2.4'">
-      <div class="demo-box">
-        <h3>Experiment 2.4: Feature-Based Structure</h3>
-        <p><strong>Core Service:</strong> Authenticated User: {{ authService.getUser().name }} ({{ authService.getUser().role }})</p>
-        <p><strong>Shared Component:</strong></p>
-        <app-loading-spinner></app-loading-spinner>
-        <p><strong>Feature Components:</strong></p>
-        <app-student-list></app-student-list>
-      </div>
-    </div>
-
-    <!-- Exp 2.5 -->
-    <div *ngIf="activeTab === '2.5'">
-      <app-lifecycle-doc></app-lifecycle-doc>
-    </div>
-
-    <!-- Exp 2.6 -->
-    <div *ngIf="activeTab === '2.6'">
-      <app-structure-compare></app-structure-compare>
-    </div>
-
-    <!-- Exp 2.7 -->
-    <div *ngIf="activeTab === '2.7'">
-      <app-architecture-seminar></app-architecture-seminar>
-    </div>
-
-    <!-- Exp 2.8 -->
-    <div *ngIf="activeTab === '2.8'">
-      <div class="demo-box">
-        <h3>Experiment 2.8: Modular Angular Application</h3>
-        <p>Eager Startup Chunk (main.js) + Lazy Chunks (student-module.js, course-module.js)</p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
-          <app-student-list></app-student-list>
-          <app-course-list></app-course-list>
-        </div>
-      </div>
-    </div>
-
-    <!-- Exp 2.9 -->
-    <div *ngIf="activeTab === '2.9'">
-      <app-architecture-case-studies></app-architecture-case-studies>
-    </div>
-
-    <!-- Exp 2.10 -->
-    <div *ngIf="activeTab === '2.10'">
-      <app-counter-container></app-counter-container>
-    </div>
-
   </main>
 </div>

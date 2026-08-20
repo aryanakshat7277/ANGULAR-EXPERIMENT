@@ -1,0 +1,19 @@
+<div class="demo-box">
+  <h3>Experiment 2.6: Compare Approaches to Structuring Angular Applications</h3>
+  <table class="simple-table">
+    <thead>
+      <tr>
+        <th>Structuring Approach</th>
+        <th>Recorded Observation</th>
+        <th>Best Fit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of approaches">
+        <td><strong>{{ a.approach }}</strong></td>
+        <td>{{ a.observation }}</td>
+        <td>{{ a.bestFor }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
