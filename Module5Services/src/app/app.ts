@@ -6,19 +6,19 @@ import { LoggerService } from './services/logger.service';
 import { AppStateService } from './services/app-state.service';
 import { StudentService, Student } from './services/student.service';
 
-export type Module5Tab = 'overview' | '5.1' | '5.2' | '5.3' | '5.4' | '5.5' | '5.6' | '5.7';
+export type Module5Tab = '5.1' | '5.2' | '5.3' | '5.4' | '5.5' | '5.6' | '5.7';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule],
-  providers: [LoggerService], // For Exp 5.3 Hierarchical DI Provider Scope
+  providers: [LoggerService],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   title = 'Angular Module 5: Services & HttpClient (Experiments 5.1 - 5.7)';
-  activeTab: Module5Tab = 'overview';
+  activeTab: Module5Tab = '5.1';
 
   // Exp 5.1: Injecting Simple Service
   private messageService = inject(MessageService);

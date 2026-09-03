@@ -5,7 +5,6 @@
   </header>
 
   <nav class="experiment-nav">
-    <button [class.active]="activeTab === 'overview'" (click)="selectTab('overview')">Overview</button>
     <button [class.active]="activeTab === '5.1'" (click)="selectTab('5.1')">5.1 Simple Service</button>
     <button [class.active]="activeTab === '5.2'" (click)="selectTab('5.2')">5.2 Singleton Service</button>
     <button [class.active]="activeTab === '5.3'" (click)="selectTab('5.3')">5.3 Hierarchical DI</button>
@@ -16,56 +15,6 @@
   </nav>
 
   <main class="lab-canvas">
-
-    <!-- Overview -->
-    <div *ngIf="activeTab === 'overview'" class="overview-hero">
-      <h2>Angular Module 5: Services & HttpClient (Experiments 5.1 - 5.7)</h2>
-      <p>Select any experiment from the navigation bar above or click a card below to run the practical demo.</p>
-
-      <div class="exp-grid">
-        <div class="exp-card" (click)="selectTab('5.1')">
-          <div class="exp-num">Exp 5.1</div>
-          <div class="exp-title">Simple Service</div>
-          <div class="exp-sub">Create service and inject with inject() function.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('5.2')">
-          <div class="exp-num">Exp 5.2</div>
-          <div class="exp-title">Singleton Service</div>
-          <div class="exp-sub">Root-provided shared state counter instance.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('5.3')">
-          <div class="exp-num">Exp 5.3</div>
-          <div class="exp-title">Hierarchical DI</div>
-          <div class="exp-sub">Component/module level providers and instance IDs.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('5.4')">
-          <div class="exp-num">Exp 5.4</div>
-          <div class="exp-title">Application State</div>
-          <div class="exp-sub">Root-level shared application state service.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('5.5')">
-          <div class="exp-num">Exp 5.5</div>
-          <div class="exp-title">HttpClient GET</div>
-          <div class="exp-sub">Fetch student list from JSONPlaceholder REST API.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('5.6')">
-          <div class="exp-num">Exp 5.6</div>
-          <div class="exp-title">HttpClient POST</div>
-          <div class="exp-sub">Send JSON payload to create new student resource.</div>
-        </div>
-
-        <div class="exp-card" (click)="selectTab('5.7')">
-          <div class="exp-num">Exp 5.7</div>
-          <div class="exp-title">HttpClient PUT</div>
-          <div class="exp-sub">Update existing student resource via PUT request.</div>
-        </div>
-      </div>
-    </div>
 
     <!-- Exp 5.1 -->
     <div *ngIf="activeTab === '5.1'">
