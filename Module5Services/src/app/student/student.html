@@ -1,0 +1,17 @@
+<div class="student-box">
+  <h3>Child Component: Student</h3>
+  <p><strong>Student Name:</strong> {{ studentName }}</p>
+  <p><strong>Course:</strong> {{ course }}</p>
+  <p><strong>Marks:</strong> {{ marks }}</p>
+
+  <div class="btn-group">
+    <button (click)="send()">Send 'Hello Parent' (Exp 4.1)</button>
+    <button (click)="sendMarks()">Send Numeric Marks (Exp 4.2)</button>
+    <button (click)="change()">Change Course to Advanced (Exp 4.3)</button>
+  </div>
+
+  <div class="projection-area" *ngIf="projectedContent">
+    <p><em>Projected Content (ContentChild - Exp 4.4):</em></p>
+    <ng-content></ng-content>
+  </div>
+</div>

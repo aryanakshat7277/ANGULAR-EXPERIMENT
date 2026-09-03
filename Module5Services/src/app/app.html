@@ -1,0 +1,154 @@
+<div class="lab-shell">
+  <header class="lab-header">
+    <h1>{{ title }}</h1>
+    <div class="header-meta">Angular Module 5 Practical Workbench • Angular 22</div>
+  </header>
+
+  <nav class="experiment-nav">
+    <button [class.active]="activeTab === 'overview'" (click)="selectTab('overview')">Overview</button>
+    <button [class.active]="activeTab === '5.1'" (click)="selectTab('5.1')">5.1 Simple Service</button>
+    <button [class.active]="activeTab === '5.2'" (click)="selectTab('5.2')">5.2 Singleton Service</button>
+    <button [class.active]="activeTab === '5.3'" (click)="selectTab('5.3')">5.3 Hierarchical DI</button>
+    <button [class.active]="activeTab === '5.4'" (click)="selectTab('5.4')">5.4 Application State</button>
+    <button [class.active]="activeTab === '5.5'" (click)="selectTab('5.5')">5.5 HttpClient GET</button>
+    <button [class.active]="activeTab === '5.6'" (click)="selectTab('5.6')">5.6 HttpClient POST</button>
+    <button [class.active]="activeTab === '5.7'" (click)="selectTab('5.7')">5.7 HttpClient PUT</button>
+  </nav>
+
+  <main class="lab-canvas">
+
+    <!-- Overview -->
+    <div *ngIf="activeTab === 'overview'" class="overview-hero">
+      <h2>Angular Module 5: Services & HttpClient (Experiments 5.1 - 5.7)</h2>
+      <p>Select any experiment from the navigation bar above or click a card below to run the practical demo.</p>
+
+      <div class="exp-grid">
+        <div class="exp-card" (click)="selectTab('5.1')">
+          <div class="exp-num">Exp 5.1</div>
+          <div class="exp-title">Simple Service</div>
+          <div class="exp-sub">Create service and inject with inject() function.</div>
+        </div>
+
+        <div class="exp-card" (click)="selectTab('5.2')">
+          <div class="exp-num">Exp 5.2</div>
+          <div class="exp-title">Singleton Service</div>
+          <div class="exp-sub">Root-provided shared state counter instance.</div>
+        </div>
+
+        <div class="exp-card" (click)="selectTab('5.3')">
+          <div class="exp-num">Exp 5.3</div>
+          <div class="exp-title">Hierarchical DI</div>
+          <div class="exp-sub">Component/module level providers and instance IDs.</div>
+        </div>
+
+        <div class="exp-card" (click)="selectTab('5.4')">
+          <div class="exp-num">Exp 5.4</div>
+          <div class="exp-title">Application State</div>
+          <div class="exp-sub">Root-level shared application state service.</div>
+        </div>
+
+        <div class="exp-card" (click)="selectTab('5.5')">
+          <div class="exp-num">Exp 5.5</div>
+          <div class="exp-title">HttpClient GET</div>
+          <div class="exp-sub">Fetch student list from JSONPlaceholder REST API.</div>
+        </div>
+
+        <div class="exp-card" (click)="selectTab('5.6')">
+          <div class="exp-num">Exp 5.6</div>
+          <div class="exp-title">HttpClient POST</div>
+          <div class="exp-sub">Send JSON payload to create new student resource.</div>
+        </div>
+
+        <div class="exp-card" (click)="selectTab('5.7')">
+          <div class="exp-num">Exp 5.7</div>
+          <div class="exp-title">HttpClient PUT</div>
+          <div class="exp-sub">Update existing student resource via PUT request.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exp 5.1 -->
+    <div *ngIf="activeTab === '5.1'">
+      <div class="demo-box">
+        <h3>Experiment 5.1 – Creating and Injecting a Simple Service</h3>
+        <p><strong>Service Message Output:</strong> {{ message }}</p>
+      </div>
+    </div>
+
+    <!-- Exp 5.2 -->
+    <div *ngIf="activeTab === '5.2'">
+      <div class="demo-box">
+        <h3>Experiment 5.2 – Singleton Services with Dependency Injection</h3>
+        <p><strong>Count:</strong> {{ counter.count }}</p>
+        <button (click)="counter.increment()" class="btn-action">Increment Counter</button>
+      </div>
+    </div>
+
+    <!-- Exp 5.3 -->
+    <div *ngIf="activeTab === '5.3'">
+      <div class="demo-box">
+        <h3>Experiment 5.3 – Hierarchical DI: Providers in Modules/Components</h3>
+        <p><strong>Logger Instance ID:</strong> {{ logger.getId() }}</p>
+      </div>
+    </div>
+
+    <!-- Exp 5.4 -->
+    <div *ngIf="activeTab === '5.4'">
+      <div class="demo-box">
+        <h3>Experiment 5.4 – Managing Application-Wide Services</h3>
+        <h1>{{ state.appName }}</h1>
+        <p>{{ state.welcome() }}</p>
+      </div>
+    </div>
+
+    <!-- Exp 5.5 -->
+    <div *ngIf="activeTab === '5.5'">
+      <div class="demo-box">
+        <h3>Experiment 5.5 – HttpClient GET Request</h3>
+        <button (click)="loadStudents()" class="btn-action" [disabled]="getLoading">
+          {{ getLoading ? 'Loading Students...' : 'Load Students' }}
+        </button>
+
+        <ul *ngIf="students.length > 0" class="data-list">
+          <li *ngFor="let s of students">
+            <strong>{{ s.name }}</strong> &mdash; <span>{{ s.email }}</span>
+          </li>
+        </ul>
+        <p *ngIf="getLoaded && students.length === 0">No students retrieved.</p>
+      </div>
+    </div>
+
+    <!-- Exp 5.6 -->
+    <div *ngIf="activeTab === '5.6'">
+      <div class="demo-box">
+        <h3>Experiment 5.6 – HttpClient POST Request</h3>
+        <p><strong>Payload:</strong> <code>{{ newStudent | json }}</code></p>
+        <button (click)="addStudent()" class="btn-action" [disabled]="postLoading">
+          {{ postLoading ? 'Sending POST Request...' : 'Add Student' }}
+        </button>
+
+        <div *ngIf="postResult" class="result-box">
+          <p><strong>Console / API Response:</strong></p>
+          <pre>Created: {{ postResult | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exp 5.7 -->
+    <div *ngIf="activeTab === '5.7'">
+      <div class="demo-box">
+        <h3>Experiment 5.7 – HttpClient PUT Request</h3>
+        <p><strong>Update Payload (ID: 1):</strong> <code>{{ updatedStudent | json }}</code></p>
+        <button (click)="updateStudent()" class="btn-action" [disabled]="putLoading">
+          {{ putLoading ? 'Sending PUT Request...' : 'Update Student 1' }}
+        </button>
+
+        <div *ngIf="putResult" class="result-box">
+          <p><strong>Console / API Response:</strong></p>
+          <pre>Updated: {{ putResult | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
