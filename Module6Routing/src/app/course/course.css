@@ -1,0 +1,11 @@
+.course-card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  background: #fdfdfd;
+  border-radius: 4px;
+}
+
+.course-card h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}

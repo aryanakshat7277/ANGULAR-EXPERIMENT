@@ -1,0 +1,15 @@
+<div class="card-box">
+  <h2>Student View (Experiment 6.1)</h2>
+  <p><strong>Name:</strong> {{ name }}</p>
+  <p><strong>Subject:</strong> {{ subject }}</p>
+  <p><strong>College:</strong> {{ college }}</p>
+  <p><strong>Semester:</strong> {{ semester }}</p>
+
+  <div class="nested-nav">
+    <a routerLink="result" class="btn-sub">View Result (Exp 6.5 Child Route)</a>
+  </div>
+
+  <div class="child-outlet-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="parent-box">
+  <h2>Parent Component</h2>
+  <p><strong>Parent State:</strong> Student Name = "{{ name }}"</p>
+  <p *ngIf="msg"><strong>Message Received from Child (Exp 4.1):</strong> <span class="badge">{{ msg }}</span></p>
+  <p *ngIf="result !== null"><strong>Marks Received from Child (Exp 4.2):</strong> <span class="badge">{{ result }}</span></p>
+  <p><strong>Current Course (Exp 4.3):</strong> {{ currentCourse }}</p>
+
+  <div class="action-bar">
+    <button (click)="callChild()">Invoke Child Method via @ViewChild (Exp 4.4)</button>
+  </div>
+
+  <app-student
+    [studentName]="name"
+    [course]="currentCourse"
+    (notify)="receive($event)"
+    (score)="handleScore($event)"
+    (courseChanged)="handleCourseChange($event)">
+    <b #content>Projected Content via ContentChild Example</b>
+  </app-student>
+</div>

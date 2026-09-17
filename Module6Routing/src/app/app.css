@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background: #fdfdfd;
+  padding: 16px;
+}
+
+.lab-shell {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.lab-header {
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.lab-header h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: #222;
+}
+
+.header-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+.experiment-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.experiment-nav a {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.experiment-nav a:hover {
+  background: #e5e5e5;
+}
+
+.experiment-nav a.active {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+  font-weight: bold;
+}
+
+.lab-canvas {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 6px;
+}

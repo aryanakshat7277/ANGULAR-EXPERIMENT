@@ -1,0 +1,16 @@
+<div class="lab-shell">
+  <header class="lab-header">
+    <h1>{{ title }}</h1>
+    <div class="header-meta">Module 6 Workbench • Angular 22</div>
+  </header>
+
+  <nav class="experiment-nav">
+    <a routerLink="/student" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">Student View (Exp 6.1 & 6.5)</a>
+    <a routerLink="/course" routerLinkActive="active">Course View (Exp 6.3 Guard & 6.4 Lazy)</a>
+    <a routerLink="/login" routerLinkActive="active">Login Redirect (Exp 6.3)</a>
+  </nav>
+
+  <main class="lab-canvas">
+    <router-outlet></router-outlet>
+  </main>
+</div>

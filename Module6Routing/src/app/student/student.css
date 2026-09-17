@@ -1,0 +1,34 @@
+.card-box {
+  border: 1px solid #ccc;
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 4px;
+}
+
+.card-box h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+.nested-nav {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.btn-sub {
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.btn-sub:hover {
+  background: #555;
+}
+
+.child-outlet-wrapper {
+  margin-top: 12px;
+}
