@@ -4,27 +4,207 @@
     <div class="header-meta">Module 6 Workbench • Angular 22</div>
   </header>
 
-  <!-- Experiment 6.2: RouterLink and router-outlet -->
-  <div class="exp62-banner">
-    <span class="badge">Experiment 6.2</span>
-    <strong>Use RouterLink & &lt;router-outlet&gt; for Navigation:</strong>
-    <span>Click the RouterLinks below to dynamically render components into the &lt;router-outlet&gt;</span>
-  </div>
-
+  <!-- Top Navigation Tabs: Experiments 6.1 through 6.5 -->
   <nav class="experiment-nav">
-    <a routerLink="/student" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
-      Student (Exp 6.1 & 6.5)
-    </a>
-    <a routerLink="/course" routerLinkActive="active">
-      Course (Exp 6.3 Guard & 6.4 Lazy)
-    </a>
-    <a routerLink="/login" routerLinkActive="active">
-      Login (Exp 6.3 Redirect)
-    </a>
+    <button [class.active]="activeTab === '6.1'" (click)="selectTab('6.1')">
+      6.1 Configure Routes
+    </button>
+    <button [class.active]="activeTab === '6.2'" (click)="selectTab('6.2')">
+      6.2 RouterLink & Outlet
+    </button>
+    <button [class.active]="activeTab === '6.3'" (click)="selectTab('6.3')">
+      6.3 Route Guards
+    </button>
+    <button [class.active]="activeTab === '6.4'" (click)="selectTab('6.4')">
+      6.4 Lazy Loading
+    </button>
+    <button [class.active]="activeTab === '6.5'" (click)="selectTab('6.5')">
+      6.5 Child / Nested Routes
+    </button>
   </nav>
 
   <main class="lab-canvas">
-    <!-- Target container where components are swapped by the router -->
-    <router-outlet></router-outlet>
+
+    <!-- ==================== EXPERIMENT 6.1 ==================== -->
+    <section *ngIf="activeTab === '6.1'" class="exp-panel">
+      <div class="exp-title-row">
+        <span class="exp-tag">Experiment 6.1</span>
+        <h2>Configure Routes in an Angular Application</h2>
+      </div>
+      <p class="exp-desc">
+        Define application routes in <code>app.routes.ts</code> mapping URL paths to standalone components, registered using <code>provideRouter(routes)</code>.
+      </p>
+
+      <div class="code-box">
+        <div class="code-header">Registered Application Routes Table</div>
+        <table class="route-table">
+          <thead>
+            <tr>
+              <th>Path</th>
+              <th>Destination Component</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>''</code> (root)</td>
+              <td>Redirects to <code>/student</code></td>
+              <td><button class="btn-sm" (click)="navigateRoute('/student')">Go to Root</button></td>
+            </tr>
+            <tr>
+              <td><code>'/student'</code></td>
+              <td><code>Student</code> component</td>
+              <td><button class="btn-sm" (click)="navigateRoute('/student')">Navigate to /student</button></td>
+            </tr>
+            <tr>
+              <td><code>'/course'</code></td>
+              <td><code>Course</code> component (Guarded & Lazy)</td>
+              <td><button class="btn-sm" (click)="navigateRoute('/course')">Navigate to /course</button></td>
+            </tr>
+            <tr>
+              <td><code>'/login'</code></td>
+              <td><code>Login</code> component</td>
+              <td><button class="btn-sm" (click)="navigateRoute('/login')">Navigate to /login</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="live-preview-box">
+        <div class="preview-header">
+          <strong>Live Route Output:</strong> Current URL is <code>{{ router.url }}</code>
+        </div>
+        <div class="preview-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EXPERIMENT 6.2 ==================== -->
+    <section *ngIf="activeTab === '6.2'" class="exp-panel">
+      <div class="exp-title-row">
+        <span class="exp-tag">Experiment 6.2</span>
+        <h2>Use RouterLink and &lt;router-outlet&gt; for Navigation</h2>
+      </div>
+      <p class="exp-desc">
+        Add declarative navigation links with <code>routerLink</code> and render active components dynamically inside the <code>&lt;router-outlet&gt;</code> placeholder without reloading the page.
+      </p>
+
+      <div class="code-box">
+        <div class="code-header">Interactive RouterLink Bar (from Manual Page 27)</div>
+        <nav class="sub-nav">
+          <a routerLink="/student" routerLinkActive="sub-active">Student View</a>
+          <a routerLink="/course" routerLinkActive="sub-active">Course View</a>
+          <a routerLink="/login" routerLinkActive="sub-active">Login View</a>
+        </nav>
+      </div>
+
+      <div class="live-preview-box">
+        <div class="preview-header">
+          <strong>&lt;router-outlet&gt; View Area:</strong> Dynamic content swaps here
+        </div>
+        <div class="preview-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EXPERIMENT 6.3 ==================== -->
+    <section *ngIf="activeTab === '6.3'" class="exp-panel">
+      <div class="exp-title-row">
+        <span class="exp-tag">Experiment 6.3</span>
+        <h2>Implement Route Guards for Security</h2>
+      </div>
+      <p class="exp-desc">
+        Protect routes using a functional <code>CanActivateFn</code> guard (<code>authGuard</code>). If an unauthenticated user visits <code>/course</code>, they are immediately redirected to <code>/login</code>.
+      </p>
+
+      <div class="control-box">
+        <div class="auth-status-row">
+          <span>Authentication State:</span>
+          <span [class.badge-success]="authService.isLoggedIn()" [class.badge-danger]="!authService.isLoggedIn()">
+            {{ authService.isLoggedIn() ? 'LOGGED IN (Access Allowed)' : 'LOGGED OUT (Access Blocked)' }}
+          </span>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-action" (click)="authService.login()" [disabled]="authService.isLoggedIn()">
+            Log In (Grant Access)
+          </button>
+          <button class="btn-danger" (click)="authService.logout()" [disabled]="!authService.isLoggedIn()">
+            Log Out (Revoke Access)
+          </button>
+          <button class="btn-primary" (click)="accessProtectedCourse()">
+            Test Access to Protected Route: /course
+          </button>
+        </div>
+      </div>
+
+      <div class="live-preview-box">
+        <div class="preview-header">
+          <strong>Guard Decision Output:</strong> URL: <code>{{ router.url }}</code>
+        </div>
+        <div class="preview-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EXPERIMENT 6.4 ==================== -->
+    <section *ngIf="activeTab === '6.4'" class="exp-panel">
+      <div class="exp-title-row">
+        <span class="exp-tag">Experiment 6.4</span>
+        <h2>Implement Lazy Loading for Performance Optimization</h2>
+      </div>
+      <p class="exp-desc">
+        Configure feature routes with <code>loadComponent: () => import('./course/course').then(m => m.Course)</code> so that code chunks (<code>chunk-course.js</code>) are fetched only on-demand.
+      </p>
+
+      <div class="control-box">
+        <p><strong>Build Output Details:</strong> <code>chunk-course.js (951 bytes)</code> was bundled separately as a lazy chunk file.</p>
+        <button class="btn-action" (click)="triggerLazyLoad()" [disabled]="lazyLoadedCourse || isLazyLoading">
+          {{ isLazyLoading ? 'Loading JS Chunk...' : (lazyLoadedCourse ? 'Course Chunk Loaded!' : 'Fetch & Load Lazy Course Chunk') }}
+        </button>
+      </div>
+
+      <div *ngIf="lazyLoadedCourse" class="lazy-container">
+        <div class="lazy-badge">Lazy Chunk Loaded Successfully into Memory</div>
+        <ng-container *ngComponentOutlet="lazyLoadedCourse"></ng-container>
+      </div>
+    </section>
+
+    <!-- ==================== EXPERIMENT 6.5 ==================== -->
+    <section *ngIf="activeTab === '6.5'" class="exp-panel">
+      <div class="exp-title-row">
+        <span class="exp-tag">Experiment 6.5</span>
+        <h2>Create and Use Child Routes and Nested Routing</h2>
+      </div>
+      <p class="exp-desc">
+        Nest child routes inside parent components (e.g. <code>/student/result</code> inside <code>/student</code>). The parent <code>Student</code> component hosts its own internal <code>&lt;router-outlet&gt;</code> to render the child <code>Result</code> view.
+      </p>
+
+      <div class="control-box">
+        <div class="btn-group">
+          <button class="btn-sm" (click)="navigateRoute('/student')">
+            Show Parent Student View Only (/student)
+          </button>
+          <button class="btn-primary" (click)="navigateRoute('/student/result')">
+            Load Nested Child Result View (/student/result)
+          </button>
+        </div>
+      </div>
+
+      <div class="live-preview-box">
+        <div class="preview-header">
+          <strong>Nested Component Hierarchy:</strong> URL: <code>{{ router.url }}</code>
+        </div>
+        <div class="preview-body">
+          <div class="nested-wrapper">
+            <app-student></app-student>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 </div>
