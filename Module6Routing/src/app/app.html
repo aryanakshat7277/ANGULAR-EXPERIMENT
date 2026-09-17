@@ -4,13 +4,27 @@
     <div class="header-meta">Module 6 Workbench • Angular 22</div>
   </header>
 
+  <!-- Experiment 6.2: RouterLink and router-outlet -->
+  <div class="exp62-banner">
+    <span class="badge">Experiment 6.2</span>
+    <strong>Use RouterLink & &lt;router-outlet&gt; for Navigation:</strong>
+    <span>Click the RouterLinks below to dynamically render components into the &lt;router-outlet&gt;</span>
+  </div>
+
   <nav class="experiment-nav">
-    <a routerLink="/student" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">Student View (Exp 6.1 & 6.5)</a>
-    <a routerLink="/course" routerLinkActive="active">Course View (Exp 6.3 Guard & 6.4 Lazy)</a>
-    <a routerLink="/login" routerLinkActive="active">Login Redirect (Exp 6.3)</a>
+    <a routerLink="/student" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+      Student (Exp 6.1 & 6.5)
+    </a>
+    <a routerLink="/course" routerLinkActive="active">
+      Course (Exp 6.3 Guard & 6.4 Lazy)
+    </a>
+    <a routerLink="/login" routerLinkActive="active">
+      Login (Exp 6.3 Redirect)
+    </a>
   </nav>
 
   <main class="lab-canvas">
+    <!-- Target container where components are swapped by the router -->
     <router-outlet></router-outlet>
   </main>
 </div>
