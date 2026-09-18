@@ -7,7 +7,7 @@
 }
 
 .lab-shell {
-  max-width: 950px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -19,7 +19,7 @@
 
 .lab-header h1 {
   margin: 0;
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   color: #222;
 }
 
@@ -32,19 +32,18 @@
 .experiment-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   margin-bottom: 16px;
 }
 
 .experiment-nav button {
   background: #f0f0f0;
   border: 1px solid #ccc;
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-radius: 4px;
   font-size: 0.85rem;
-  color: #333;
   cursor: pointer;
-  font-weight: normal;
+  color: #333;
 }
 
 .experiment-nav button:hover {
@@ -61,214 +60,72 @@
 .lab-canvas {
   background: #fff;
   border: 1px solid #ddd;
-  padding: 24px;
+  padding: 20px;
   border-radius: 6px;
 }
 
-.exp-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.exp-title-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.exp-title-row h2 {
-  margin: 0;
-  font-size: 1.25rem;
-  color: #111;
-}
-
-.exp-tag {
-  background: #0066cc;
-  color: #fff;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-}
-
-.exp-desc {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #555;
-  line-height: 1.4;
-}
-
-.code-box, .control-box {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 4px;
-  padding: 14px;
-}
-
-.code-header {
-  font-weight: bold;
-  font-size: 0.85rem;
-  color: #475569;
-  margin-bottom: 10px;
-}
-
-.route-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.85rem;
-}
-
-.route-table th, .route-table td {
-  border: 1px solid #e2e8f0;
-  padding: 8px 12px;
-  text-align: left;
-}
-
-.route-table th {
-  background: #f1f5f9;
-  color: #334155;
-}
-
-.btn-sm {
-  background: #0066cc;
-  color: #fff;
-  border: none;
-  padding: 4px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 0.8rem;
-}
-
-.btn-sm:hover {
-  background: #0052a3;
-}
-
-.sub-nav {
-  display: flex;
-  gap: 10px;
-}
-
-.sub-nav a {
-  background: #fff;
-  border: 1px solid #cbd5e1;
-  padding: 8px 16px;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #1e293b;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.sub-nav a.sub-active {
-  background: #0066cc;
-  color: #fff;
-  border-color: #0066cc;
-}
-
-.live-preview-box {
-  border: 1px solid #d0d7de;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-top: 6px;
-}
-
-.preview-header {
-  background: #f6f8fa;
-  padding: 10px 14px;
-  font-size: 0.85rem;
-  color: #24292f;
-  border-bottom: 1px solid #d0d7de;
-}
-
-.preview-body {
+.demo-box {
+  border: 1px solid #ddd;
   padding: 16px;
+  border-radius: 4px;
   background: #fff;
 }
 
-.auth-status-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.demo-box h3 {
+  margin-top: 0;
   margin-bottom: 12px;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.badge-success {
-  background: #28a745;
-  color: #fff;
-  padding: 3px 8px;
-  border-radius: 3px;
-  font-size: 0.8rem;
-}
-
-.badge-danger {
-  background: #dc3545;
-  color: #fff;
-  padding: 3px 8px;
-  border-radius: 3px;
-  font-size: 0.8rem;
+  color: #222;
 }
 
 .btn-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+  margin-top: 10px;
 }
 
-.btn-action {
-  background: #28a745;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
+button {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.85rem;
 }
 
-.btn-action:disabled {
-  background: #ccc;
-  cursor: not-allowed;
+button:hover {
+  background: #e5e5e5;
 }
 
-.btn-danger {
-  background: #dc3545;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
+.sub-nav {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.sub-nav a {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
   border-radius: 4px;
-  cursor: pointer;
+  text-decoration: none;
+  color: #333;
   font-size: 0.85rem;
 }
 
-.btn-danger:disabled {
-  background: #ccc;
-  cursor: not-allowed;
+.sub-nav a:hover {
+  background: #e5e5e5;
 }
 
-.btn-primary {
-  background: #0066cc;
+.sub-nav a.active {
+  background: #333;
   color: #fff;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.85rem;
-}
-
-.lazy-container {
-  margin-top: 12px;
-  padding: 16px;
-  background: #f0fdf4;
-  border: 1px dashed #22c55e;
-  border-radius: 4px;
-}
-
-.lazy-badge {
-  color: #15803d;
+  border-color: #333;
   font-weight: bold;
-  font-size: 0.85rem;
-  margin-bottom: 8px;
+}
+
+.outlet-container {
+  border-top: 1px dashed #ccc;
+  padding-top: 12px;
+  margin-top: 12px;
 }
