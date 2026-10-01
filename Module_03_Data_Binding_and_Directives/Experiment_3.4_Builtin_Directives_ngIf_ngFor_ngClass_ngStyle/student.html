@@ -1,0 +1,14 @@
+<div class="directives-demo">
+  <h2>Angular Directives</h2>
+  <p *ngIf="isLoggedIn">Welcome Manoj Kumar Padhi</p>
+
+  <h3>Student List</h3>
+  <ul>
+    <li *ngFor="let student of students">{{ student }}</li>
+  </ul>
+
+  <p [ngClass]="{'active': isActive}"
+     [ngStyle]="{'font-size': isActive ? '18px' : '14px'}">
+    Angular Directives Example
+  </p>
+</div>

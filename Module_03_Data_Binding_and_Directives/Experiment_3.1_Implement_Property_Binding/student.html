@@ -1,0 +1,21 @@
+<div class="prop-binding-box">
+  <h1>Property Binding Example</h1>
+  <h2>{{ name }}</h2>
+  <div>
+    <img [src]="imageUrl" [width]="150" alt="Angular Logo">
+  </div>
+  <div class="form-group">
+    <label>Value Binding: </label>
+    <input [value]="name">
+  </div>
+  <div class="form-group">
+    <label>Placeholder Binding: </label>
+    <input [placeholder]="placeholderText">
+  </div>
+  <div class="form-group">
+    <a [href]="website" target="_blank">Visit Angular Website</a>
+  </div>
+  <div class="form-group">
+    <button [disabled]="isDisabled">Save</button>
+  </div>
+</div>

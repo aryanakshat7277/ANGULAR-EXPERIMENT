@@ -1,0 +1,10 @@
+<div class="records-container">
+  <h2>Student Gradebook Report</h2>
+  <ul>
+    <li *ngFor="let r of records" [ngClass]="{'pass': r.marks >= 40, 'fail': r.marks < 40}">
+      <span class="student-name">{{ r.name }}</span> - 
+      <span class="marks">{{ r.marks }} marks</span>
+      <span *ngIf="r.marks < 40" class="warning-badge">(Needs Improvement)</span>
+    </li>
+  </ul>
+</div>

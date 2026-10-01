@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Angular Dev Server (my-first-app)",
+      "type": "shell",
+      "command": "npm start",
+      "options": {
+        "cwd": "${workspaceFolder}/my-first-app"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Building...",
+          "endsPattern": "Application bundle generation complete."
+        }
+      }
+    },
+    {
+      "label": "Build Angular Application (my-first-app)",
+      "type": "shell",
+      "command": "npm run build",
+      "options": {
+        "cwd": "${workspaceFolder}/my-first-app"
+      },
+      "problemMatcher": ["$tsc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Run Unit Tests (my-first-app)",
+      "type": "shell",
+      "command": "npm test -- --watch=false",
+      "options": {
+        "cwd": "${workspaceFolder}/my-first-app"
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Run Experiment 1.8 (TypeScript Hello)",
+      "type": "shell",
+      "command": "npx tsc --ignoreConfig hello.ts && node hello.js",
+      "options": {
+        "cwd": "${workspaceFolder}/Module_01_Introduction_to_Angular_and_TypeScript_Basics/Experiment_1.8_Install_and_Setup_TypeScript"
+      }
+    },
+    {
+      "label": "Run Experiment 1.9 (TypeScript Basics)",
+      "type": "shell",
+      "command": "npx tsc --ignoreConfig basics.ts && node basics.js",
+      "options": {
+        "cwd": "${workspaceFolder}/Module_01_Introduction_to_Angular_and_TypeScript_Basics/Experiment_1.9_Implement_Basic_TypeScript_Syntax"
+      }
+    },
+    {
+      "label": "Run Experiment 1.10 (TypeScript Classes)",
+      "type": "shell",
+      "command": "npx tsc --ignoreConfig student-model.ts && node student-model.js",
+      "options": {
+        "cwd": "${workspaceFolder}/Module_01_Introduction_to_Angular_and_TypeScript_Basics/Experiment_1.10_Classes_and_Interfaces_in_TypeScript"
+      }
+    }
+  ]
+}

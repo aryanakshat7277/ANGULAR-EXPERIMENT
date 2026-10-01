@@ -1,0 +1,95 @@
+<div class="student-page">
+  <div class="card intro-card">
+    <h1>Welcome to Angular</h1>
+    <h2>Student Component (Module 1 - 7 Demonstration)</h2>
+    <p><strong>Name :</strong> {{ name }}</p>
+    <p><strong>Subject :</strong> {{ subject }}</p>
+    <p><strong>College :</strong> {{ college }}</p>
+    <p><strong>Semester :</strong> {{ semester }}</p>
+  </div>
+
+  <!-- Data Binding Section (Module 3) -->
+  <div class="card">
+    <h3>Module 3: Data Binding & Directives</h3>
+    
+    <div class="demo-section">
+      <h4>Property Binding</h4>
+      <img [src]="imageUrl" [width]="120" alt="Angular Logo">
+      <div>
+        <label>Input with [value]: </label>
+        <input [value]="name">
+      </div>
+      <div>
+        <label>Input with [placeholder]: </label>
+        <input [placeholder]="placeholderText">
+      </div>
+      <p><a [href]="website" target="_blank">Visit Angular Website</a></p>
+      <button [disabled]="isDisabled">Save (Bound Disabled)</button>
+    </div>
+
+    <div class="demo-section">
+      <h4>Event Binding & Two-Way Binding</h4>
+      <p class="highlight-text">{{ message }}</p>
+      <button (click)="showMessage()">Click Me (Alert)</button>
+      <button (click)="changeMessage()">Change Message</button>
+      <div style="margin-top: 10px;">
+        <label>Two-Way Binding [(ngModel)]: </label>
+        <input type="text" [(ngModel)]="name">
+        <p>Live Name: <strong>{{ name }}</strong></p>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h4>Built-in & Custom Directives</h4>
+      <p *ngIf="isLoggedIn" class="badge-success">Welcome Manoj Kumar Padhi (*ngIf active)</p>
+      <p [ngClass]="{'active': isActive}" [ngStyle]="{'font-size': isActive ? '18px' : '14px'}">
+        Dynamic ngClass and ngStyle applied!
+      </p>
+      <p appHighlight class="hover-box">
+        Hover over this text to trigger custom attribute directive [appHighlight] (turns yellow).
+      </p>
+
+      <h5>Student Records Gradebook (Exp 3.9)</h5>
+      <ul class="grade-list">
+        <li *ngFor="let r of records" [ngClass]="{'pass': r.marks >= 40, 'fail': r.marks < 40}">
+          {{ r.name }} - {{ r.marks }} marks
+          <span *ngIf="r.marks < 40" class="warn-badge">(Needs Improvement)</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Services & Dependency Injection (Module 5) -->
+  <div class="card">
+    <h3>Module 5: Services & Dependency Injection</h3>
+    <p><strong>Singleton Counter:</strong> {{ counterService.count }}</p>
+    <button (click)="counterService.increment()">Increment Singleton Counter</button>
+    
+    <p><strong>Application-Wide Signal State:</strong> {{ appState.loggedInUser() }}</p>
+    <button (click)="appState.updateUser('Prof. Manoj Kumar Padhi')">Update Signal Value</button>
+
+    <h4>HTTP Client Users (Exp 5.5 - 5.8)</h4>
+    <button (click)="addNewUser()">Test HTTP POST (Add User)</button>
+    <p *ngIf="httpStatus" class="badge-success">{{ httpStatus }}</p>
+    <ul>
+      <li *ngFor="let u of users">{{ u.id }}. {{ u.name }} ({{ u.email }})</li>
+    </ul>
+  </div>
+
+  <!-- RxJS Streams (Module 7) -->
+  <div class="card">
+    <h3>Module 7: RxJS Streams & Operators</h3>
+    <ul>
+      <li *ngFor="let log of rxjsLogs"><code>{{ log }}</code></li>
+    </ul>
+  </div>
+
+  <!-- Nested Route Outlet (Exp 6.5) -->
+  <div class="card">
+    <h3>Module 6: Nested Child Route</h3>
+    <a routerLink="result" class="btn-link">View Nested Result Component</a>
+    <div class="child-outlet-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

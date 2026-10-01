@@ -1,0 +1,27 @@
+{
+  "name": "angular-experiments",
+  "version": "1.0.0",
+  "description": "Angular 22 Complete Practical Lab Manual Experiments",
+  "scripts": {
+    "start": "npm start --prefix my-first-app",
+    "build": "npm run build --prefix my-first-app",
+    "test": "node run_all_experiments_test.js",
+    "test:ng": "npm test --prefix my-first-app -- --watch=false"
+  },
+  "dependencies": {
+    "@angular/common": "^22.0.0",
+    "@angular/compiler": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/forms": "^22.0.0",
+    "@angular/platform-browser": "^22.0.0",
+    "@angular/router": "^22.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^22.0.7",
+    "@angular/cli": "^22.0.7",
+    "@angular/compiler-cli": "^22.0.0",
+    "typescript": "~6.0.2"
+  }
+}

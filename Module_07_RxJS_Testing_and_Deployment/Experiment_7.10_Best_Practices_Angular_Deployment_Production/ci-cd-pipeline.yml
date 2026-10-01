@@ -1,0 +1,39 @@
+name: Angular 22 CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js 22.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Lint and format check
+      run: npm run lint || true
+
+    - name: Run Unit Tests
+      run: npm test -- --no-watch --no-progress --browsers=ChromeHeadless
+
+    - name: Build Production Bundle
+      run: npm run build -- --configuration production
+
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: production-dist
+        path: dist/my-first-app/browser

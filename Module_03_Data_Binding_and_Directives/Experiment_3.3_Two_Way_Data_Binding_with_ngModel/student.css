@@ -1,0 +1,13 @@
+.two-way-box {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+.input-row {
+  margin-bottom: 15px;
+}
+input {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 2px solid #007acc;
+  border-radius: 4px;
+}
